@@ -18,24 +18,10 @@ Slack.app 本体は一切変更しない。BetterSlack が Chrome DevTools Proto
 
 BetterSlack を先に入れておく（`AirOne-dev/BetterSlack` の `install.sh`）。
 
-### BetterSlack パネルから
-
-1. `/Applications/BetterSlack.app` から Slack を起動する
-2. Slack で `⌘⇧M` → BetterSlack パネル → **Themes** → **Browse**
-3. 「Install from a GitHub URL」に貼る
-
-```
-https://github.com/t-tajiri/betterslack-hide-slack-ai-plugin
-```
-
-4. **Read it** → Install → enable
-
-### git clone から
-
-自分で編集しながら使う場合はこちら。
+### git clone から（推奨）
 
 ```bash
-git clone git@github.com:t-tajiri/betterslack-hide-slack-ai-plugin.git \
+git clone https://github.com/t-tajiri/betterslack-hide-slack-ai-plugin.git \
   ~/.betterslack/mods/themes/hide-slackbot-rail
 ```
 
@@ -50,6 +36,21 @@ symlink も使えない。BetterSlack の mod 走査は `dirent.isDirectory()` �
 3. **Browse** → `sidebar` タグ → `Hide Slackbot Rail Tab` → Install → enable
 
 Slack を `Slack.app` から直接起動すると BetterSlack が注入されず、この mod も効かない。
+
+### BetterSlack パネルの GitHub URL 欄から
+
+パネルの「Install from a GitHub URL」にこの URL を貼る方法もある。
+
+```
+https://github.com/t-tajiri/betterslack-hide-slack-ai-plugin/tree/main
+```
+
+ただし **NAT 配下など外向き IP を共有する環境では失敗しやすい**。この機能は `api.github.com` を認証なしで叩くため、IP 単位 60 req/h の制限を他の端末と食い合う。枯渇すると次のどちらかが出る。
+
+- `could not reach that repository` — default branch を解決する1回目の API で失敗
+- `no mod.json there — point at the folder holding it` — ファイル一覧を取る2回目の API で失敗。mod.json は実際には存在する
+
+URL に `/tree/main` を付けておくと1回目を省けるが、2回目は避けられない。どちらが出ても mod や URL の問題ではないので、clone を使う。`git clone` は `api.github.com` を経由しないためこの制限を受けない。
 
 ## 更新
 
