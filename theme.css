@@ -1,0 +1,9 @@
+/*
+ * 左ナビゲーションレールから Slackbot（AI）タブを隠す。
+ *
+ * data-qa はハンドコードの安定した属性。ハッシュ付きの CSS モジュール由来
+ * クラス名（.circleButton__cMiUK 等）はビルドごとに変わるため使わない。
+ */
+[data-qa='tab_rail_slackbot_button'] {
+  display: none !important;
+}

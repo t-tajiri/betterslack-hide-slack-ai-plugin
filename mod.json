@@ -1,0 +1,16 @@
+{
+  "id": "hide-slackbot-rail",
+  "name": "Hide Slackbot Rail Tab",
+  "type": "theme",
+  "version": "1.0.0",
+  "author": "t-tajiri",
+  "description": "Hides the Slackbot (AI) tab from Slack's left navigation rail. One CSS rule, no JavaScript.",
+  "entry": "theme.css",
+  "readme": "README.md",
+  "betterslackApi": 1,
+  "slackVersion": "4.51",
+  "tags": [
+    "sidebar"
+  ],
+  "origin": "third-party"
+}
